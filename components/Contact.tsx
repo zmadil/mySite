@@ -7,7 +7,7 @@ const links = [
     icon: Code2,
     label: "GitHub",
     sub: "github.com/zainadil",
-    href: "https://github.com/zainadil",
+    href: "https://github.com/zmadil",
     color: "#f1f5f9",
   },
   {

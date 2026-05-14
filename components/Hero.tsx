@@ -156,8 +156,8 @@ export default function Hero() {
 
         <div className="flex items-center justify-center gap-6">
           <a
-            href="https://github.com/zainadil"
-            {...externalLinkProps("https://github.com/zainadil")}
+            href="https://github.com/zmadil"
+            {...externalLinkProps("https://github.com/zmadil")}
             className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
             aria-label="GitHub"
           >

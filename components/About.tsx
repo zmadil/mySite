@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Cpu, Cloud, Layers, Zap } from "lucide-react";
 
 const pillars = [
@@ -40,14 +39,12 @@ export default function About() {
           {/* Photo */}
           <div className="shrink-0">
             <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-[#1e2d3d]">
-              <Image
-                src="/photo.jpg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="photo.jpg"
                 alt="Zain Adil"
-                fill
-                className="object-cover object-top"
-                priority
+                className="w-full h-full object-cover object-top"
               />
-              {/* Subtle cyan overlay on edges */}
               <div className="absolute inset-0 ring-1 ring-inset ring-[#00d4ff]/10 rounded-2xl pointer-events-none" />
             </div>
           </div>

@@ -20,8 +20,8 @@ const links = [
   {
     icon: Mail,
     label: "Email",
-    sub: "adilzain69@gmail.com",
-    href: "mailto:adilzain69@gmail.com",
+    sub: "zainmadil95@gmail.com",
+    href: "mailto:zainmadil95@gmail.com",
     color: "#00d4ff",
   },
   {

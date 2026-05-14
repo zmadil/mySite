@@ -1,5 +1,7 @@
 "use client";
 
+import SectionHeader from "@/components/SectionHeader";
+
 const skillGroups = [
   {
     category: "AI / Machine Learning",
@@ -51,14 +53,20 @@ const skillGroups = [
   },
 ];
 
+const focusAreas = [
+  "AI / LLM Infrastructure",
+  "Kubernetes & Container Orchestration",
+  "Azure Cloud & Edge Services",
+  "Industrial IoT (IIoT)",
+  "Automation & Workflow Engineering",
+  "Edge Computing Systems",
+];
+
 export default function Skills() {
   return (
     <section id="skills" className="py-28 px-6 bg-[#0a0f18]">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">02 / Skills</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="02" label="Skills" />
 
         <div className="mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-3">
@@ -121,14 +129,7 @@ export default function Skills() {
             Core Focus Areas
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              "AI / LLM Infrastructure",
-              "Kubernetes & Container Orchestration",
-              "Azure Cloud & Edge Services",
-              "Industrial IoT (IIoT)",
-              "Automation & Workflow Engineering",
-              "Edge Computing Systems",
-            ].map((area, i) => (
+            {focusAreas.map((area, i) => (
               <div key={area} className="flex items-center gap-3">
                 <span className="text-xs font-mono text-[#1e2d3d]">
                   {String(i + 1).padStart(2, "0")}

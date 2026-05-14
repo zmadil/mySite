@@ -2,6 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowDown, Code2, Briefcase, Download } from "lucide-react";
+import { externalLinkProps } from "@/lib/linkProps";
+
+const TICKER_ITEMS = [
+  "Kubernetes", "Azure", "Docker", "K3s", "FluxCD", "Ollama",
+  "MQTT", "Helm", "Ansible", "Python", "C#", "PostgreSQL",
+  "Kubernetes", "Azure", "Docker", "K3s", "FluxCD", "Ollama",
+  "MQTT", "Helm", "Ansible", "Python", "C#", "PostgreSQL",
+];
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -12,12 +20,18 @@ export default function Hero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const resize = () => {
+    const setSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    resize();
-    window.addEventListener("resize", resize);
+    setSize();
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setSize, 150);
+    };
+    window.addEventListener("resize", onResize);
 
     interface Node {
       x: number;
@@ -53,8 +67,9 @@ export default function Hero() {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 14400) {
+            const dist = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / 120) * 0.12})`;
             ctx.lineWidth = 0.5;
@@ -78,7 +93,8 @@ export default function Hero() {
     draw();
 
     return () => {
-      window.removeEventListener("resize", resize);
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
       cancelAnimationFrame(animId);
     };
   }, []);
@@ -95,13 +111,11 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Status badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1e2d3d] bg-[#0d1117]/80 text-xs font-mono text-[#00d4ff] mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff] animate-pulse" />
           Available for opportunities
         </div>
 
-        {/* Name */}
         <h1 className="text-5xl md:text-7xl font-bold text-[#f1f5f9] mb-4 tracking-tight">
           Zain{" "}
           <span
@@ -125,7 +139,6 @@ export default function Hero() {
           Building intelligent systems across cloud, edge, and real-world industrial operations.
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <a
             href="#projects"
@@ -141,12 +154,10 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Social links */}
         <div className="flex items-center justify-center gap-6">
           <a
             href="https://github.com/zainadil"
-            target="_blank"
-            rel="noopener noreferrer"
+            {...externalLinkProps("https://github.com/zainadil")}
             className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
             aria-label="GitHub"
           >
@@ -154,8 +165,7 @@ export default function Hero() {
           </a>
           <a
             href="https://linkedin.com/in/zainadil"
-            target="_blank"
-            rel="noopener noreferrer"
+            {...externalLinkProps("https://linkedin.com/in/zainadil")}
             className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
             aria-label="LinkedIn"
           >
@@ -171,15 +181,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Tech ticker */}
       <div className="absolute bottom-24 left-0 right-0 overflow-hidden">
         <div className="flex gap-6 animate-[scroll_30s_linear_infinite] whitespace-nowrap">
-          {[
-            "Kubernetes", "Azure", "Docker", "K3s", "FluxCD", "Ollama",
-            "MQTT", "Helm", "Ansible", "Python", "C#", "PostgreSQL",
-            "Kubernetes", "Azure", "Docker", "K3s", "FluxCD", "Ollama",
-            "MQTT", "Helm", "Ansible", "Python", "C#", "PostgreSQL",
-          ].map((tech, i) => (
+          {TICKER_ITEMS.map((tech, i) => (
             <span
               key={i}
               className="text-xs font-mono text-[#1e2d3d] px-3 py-1 border border-[#1e2d3d]/60 rounded shrink-0"
@@ -190,7 +194,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <a
         href="#about"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#1e2d3d] hover:text-[#00d4ff] transition-colors duration-200 animate-bounce"

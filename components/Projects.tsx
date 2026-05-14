@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ExternalLink, Layers, Terminal } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const professional = [
   {
@@ -77,12 +78,7 @@ const personal = [
 
 type Tab = "professional" | "personal";
 
-function ProjectCard({
-  title,
-  desc,
-  tags,
-  color,
-}: {
+function ProjectCard({ title, desc, tags, color }: {
   title: string;
   desc: string;
   tags: string[];
@@ -127,10 +123,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">05 / Projects</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="05" label="Projects" />
 
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>

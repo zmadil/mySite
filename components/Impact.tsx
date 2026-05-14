@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const metrics = [
   { value: "1,000+", label: "IIoT Sensors", sub: "tested and deployed" },
@@ -24,10 +25,7 @@ export default function Impact() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/3 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">03 / Impact</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="03" label="Impact" />
 
         <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4">
           Engineering Impact
@@ -40,7 +38,7 @@ export default function Impact() {
           {metrics.map((m) => (
             <div
               key={m.value}
-              className="p-5 bg-[#0d1117] border border-[#1e2d3d] rounded-lg text-center group hover:border-[#00d4ff]/30 transition-colors duration-300"
+              className="p-5 bg-[#0d1117] border border-[#1e2d3d] rounded-lg text-center hover:border-[#00d4ff]/30 transition-colors duration-300"
             >
               <div className="text-2xl font-bold text-[#00d4ff] mb-1 font-mono">
                 {m.value}

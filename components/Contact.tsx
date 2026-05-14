@@ -1,4 +1,6 @@
 import { Code2, Briefcase, Mail, Download, ArrowUpRight } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
+import { externalLinkProps } from "@/lib/linkProps";
 
 const links = [
   {
@@ -37,10 +39,7 @@ export default function Contact() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#00d4ff]/4 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">07 / Contact</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="07" label="Contact" />
 
         <div className="max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-4">
@@ -58,8 +57,7 @@ export default function Contact() {
             <a
               key={link.label}
               href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              {...externalLinkProps(link.href)}
               className="group p-5 bg-[#0d1117] border border-[#1e2d3d] rounded-lg hover:border-[#00d4ff]/30 transition-all duration-300 flex flex-col gap-3"
             >
               <div

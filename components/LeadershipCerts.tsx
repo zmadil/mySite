@@ -1,4 +1,5 @@
 import { Users, Award, BadgeCheck } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const leadership = [
   "Mentored interns and new hires on engineering best practices",
@@ -21,13 +22,9 @@ export default function LeadershipCerts() {
   return (
     <section id="leadership" className="py-28 px-6 bg-[#0a0f18]">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">06 / Leadership & Certs</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="06" label="Leadership & Certs" />
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Leadership */}
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Users size={18} className="text-[#00d4ff]" />
@@ -50,7 +47,6 @@ export default function LeadershipCerts() {
             </div>
           </div>
 
-          {/* Certifications */}
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Award size={18} className="text-[#00d4ff]" />

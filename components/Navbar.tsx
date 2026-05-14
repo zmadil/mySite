@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Terminal } from "lucide-react";
 
 const navLinks = [
@@ -15,9 +15,16 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const scrolledRef = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const next = window.scrollY > 20;
+      if (next !== scrolledRef.current) {
+        scrolledRef.current = next;
+        setScrolled(next);
+      }
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -31,7 +38,6 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
         <a href="#top" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded border border-[#00d4ff]/40 flex items-center justify-center group-hover:border-[#00d4ff] transition-colors duration-200">
             <Terminal size={14} className="text-[#00d4ff]" />
@@ -41,7 +47,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -60,7 +65,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-[#64748b] hover:text-[#00d4ff] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -70,7 +74,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#0d1117] border-t border-[#1e2d3d] px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (

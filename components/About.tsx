@@ -1,4 +1,5 @@
 import { Cpu, Cloud, Layers, Zap } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const pillars = [
   {
@@ -23,33 +24,31 @@ const pillars = [
   },
 ];
 
+const tags = [
+  "Edge Computing", "AI Infrastructure", "K8s Orchestration",
+  "Industrial IoT", "GitOps", "Self-hosted AI",
+];
+
 export default function About() {
   return (
     <section id="about" className="py-28 px-6 relative">
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#1e2d3d] to-transparent pointer-events-none hidden lg:block" />
 
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">01 / About</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="01" label="About" />
 
-        {/* Top: photo + bio side by side */}
         <div className="flex flex-col md:flex-row gap-10 items-start mb-14">
-          {/* Photo */}
-          <div className="shrink-0">
-            <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-[#1e2d3d]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="photo.jpg"
-                alt="Zain Adil"
-                className="w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[#00d4ff]/10 rounded-2xl pointer-events-none" />
-            </div>
+          <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-[#1e2d3d] shrink-0">
+            {/* plain img used intentionally — next/image doesn't apply basePath to unoptimized static exports */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="photo.jpg"
+              alt="Zain Adil"
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-[#00d4ff]/10 rounded-2xl pointer-events-none" />
           </div>
 
-          {/* Bio */}
           <div className="flex-1">
             <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-6 leading-tight">
               Building intelligent systems at the{" "}
@@ -72,10 +71,7 @@ export default function About() {
             </div>
 
             <div className="flex flex-wrap gap-2 mt-6">
-              {[
-                "Edge Computing", "AI Infrastructure", "K8s Orchestration",
-                "Industrial IoT", "GitOps", "Self-hosted AI",
-              ].map((tag) => (
+              {tags.map((tag) => (
                 <span
                   key={tag}
                   className="text-xs font-mono px-3 py-1 bg-[#0d1117] border border-[#1e2d3d] text-[#64748b] rounded"
@@ -87,7 +83,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Pillar cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {pillars.map((p) => (
             <div

@@ -1,4 +1,5 @@
 import { Building2, ExternalLink } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const techUsed = [
   "Kubernetes", "Azure", "Docker", "MQTT", "Azure IoT Operations",
@@ -41,10 +42,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-28 px-6 bg-[#0a0f18]">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#00d4ff] tracking-widest uppercase">04 / Experience</span>
-          <div className="flex-1 h-px bg-[#1e2d3d]" />
-        </div>
+        <SectionHeader index="04" label="Experience" />
 
         <h2 className="text-3xl md:text-4xl font-bold text-[#f1f5f9] mb-12">
           Professional Experience

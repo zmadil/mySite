@@ -13,8 +13,8 @@ const links = [
   {
     icon: Briefcase,
     label: "LinkedIn",
-    sub: "linkedin.com/in/zainadil",
-    href: "https://linkedin.com/in/zainadil",
+    sub: "linkedin.com/in/zain-adil",
+    href: "https://linkedin.com/in/zain-adil",
     color: "#0ea5e9",
   },
   {

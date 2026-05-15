@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowDown, Code2, Briefcase, Download } from "lucide-react";
-import { externalLinkProps } from "@/lib/linkProps";
+import { ArrowDown } from "lucide-react";
 
 const TICKER_ITEMS = [
   "Kubernetes", "Azure", "Docker", "K3s", "FluxCD", "Ollama",
@@ -154,31 +153,6 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="flex items-center justify-center gap-6">
-          <a
-            href="https://github.com/zmadil"
-            {...externalLinkProps("https://github.com/zmadil")}
-            className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <Code2 size={20} />
-          </a>
-          <a
-            href="https://linkedin.com/in/zainadil"
-            {...externalLinkProps("https://linkedin.com/in/zainadil")}
-            className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <Briefcase size={20} />
-          </a>
-          <a
-            href="/resume.pdf"
-            className="text-[#475569] hover:text-[#00d4ff] transition-colors duration-200"
-            aria-label="Download Resume"
-          >
-            <Download size={20} />
-          </a>
-        </div>
       </div>
 
       <div className="absolute bottom-24 left-0 right-0 overflow-hidden">

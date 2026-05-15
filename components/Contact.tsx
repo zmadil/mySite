@@ -1,20 +1,13 @@
-import { Code2, Briefcase, Mail, Download, ArrowUpRight } from "lucide-react";
+import { Briefcase, Mail, Download, ArrowUpRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { externalLinkProps } from "@/lib/linkProps";
 
 const links = [
   {
-    icon: Code2,
-    label: "GitHub",
-    sub: "github.com/zainadil",
-    href: "https://github.com/zmadil",
-    color: "#f1f5f9",
-  },
-  {
     icon: Briefcase,
     label: "LinkedIn",
     sub: "linkedin.com/in/zain-adil",
-    href: "https://linkedin.com/in/zain-adil",
+    href: "https://www.linkedin.com/in/zain-adil/",
     color: "#0ea5e9",
   },
   {

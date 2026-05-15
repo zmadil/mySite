@@ -1,4 +1,4 @@
-import { Briefcase, Mail, Download, ArrowUpRight } from "lucide-react";
+import { Briefcase, Mail, ArrowUpRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { externalLinkProps } from "@/lib/linkProps";
 
@@ -16,13 +16,6 @@ const links = [
     sub: "zainmadil95@gmail.com",
     href: "mailto:zainmadil95@gmail.com",
     color: "#00d4ff",
-  },
-  {
-    icon: Download,
-    label: "Resume",
-    sub: "Download PDF",
-    href: "/resume.pdf",
-    color: "#818cf8",
   },
 ];
 

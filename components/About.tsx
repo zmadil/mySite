@@ -32,7 +32,6 @@ const tags = [
 export default function About() {
   return (
     <section id="about" className="py-28 px-6 relative">
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#1e2d3d] to-transparent pointer-events-none hidden lg:block" />
 
       <div className="max-w-5xl mx-auto">
         <SectionHeader index="01" label="About" />
